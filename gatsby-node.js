@@ -199,24 +199,24 @@ result.data.allWpPost.nodes.forEach(post => {
 
    
 
-    category.data.allWpCategory.nodes.forEach(category => {
-      createPage({
-        path: `/category/${category.slug}`,
-        component: require.resolve("./src/templates/category.js"),
-        context: {
-          categorySlug: category.slug,
-        },
-      })
-    })
-    tags.data.allWpTag.nodes.forEach(tag => {
-      createPage({
-        path: `/tag/${tag.slug}`,
-        component: require.resolve("./src/templates/tags.js"),
-        context: {
-          tagSlug: tag.slug,
-        },
-      })
-    })
+    // category.data.allWpCategory.nodes.forEach(category => {
+    //   createPage({
+    //     path: `/category/${category.slug}`,
+    //     component: require.resolve("./src/templates/category.js"),
+    //     context: {
+    //       categorySlug: category.slug,
+    //     },
+    //   })
+    // })
+    // tags.data.allWpTag.nodes.forEach(tag => {
+    //   createPage({
+    //     path: `/tag/${tag.slug}`,
+    //     component: require.resolve("./src/templates/tags.js"),
+    //     context: {
+    //       tagSlug: tag.slug,
+    //     },
+    //   })
+    // })
 
   //   const result = await graphql(`
   //   {
