@@ -8,9 +8,11 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `The Gatsby Garage`,
-    siteUrl: `https://www.yourdomain.tld`,
+    siteUrl: `localhost:8000`,
   },
   plugins: [
+    `gatsby-plugin-instagram-embed`,
+    `gatsby-plugin-twitter`,
     {
       resolve: "gatsby-plugin-apollo",
       options: {
@@ -25,7 +27,18 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
+        includedRoutes: [
+          "**/article/",
+        ],
         url: process.env.WPGRAPHQL_URL,
+        permalinks: {
+          // Use the post slug as is (i.e. in Greek characters)
+          // and ensure that non-latin characters are properly encoded
+          // as per the RFC 3986 standard.
+          // For example, "Δοκιμή" will become "%CE%94%CE%BF%CE%BA%CE%B9%CE%BC%CE%AE".
+          format: `/%slug%/`,
+          encode: true,
+        },
       },
     },
     {
@@ -34,5 +47,6 @@ module.exports = {
         icon: "static/favicon.png",
       },
     },
+    "gatsby-transformer-sharp",
   ],
 };
