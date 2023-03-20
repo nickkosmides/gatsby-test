@@ -44,71 +44,71 @@ exports.createPages = async ({actions, graphql}) => {
 // `);
 
 // Query all categories from WordPress
-const category = await graphql(`
-query AllCategories {
-  allWpCategory {
-    nodes {
-      id
-      name
-      slug
-      wpParent {
-        node {
-          slug
-          wpParent {
-            node {
-              slug
-            }
-          }
-        }
-      }
-    }
-  }
-}
-`)
-if (category.errors) {
-  throw category.errors
-}
+// const category = await graphql(`
+// query AllCategories {
+//   allWpCategory {
+//     nodes {
+//       id
+//       name
+//       slug
+//       wpParent {
+//         node {
+//           slug
+//           wpParent {
+//             node {
+//               slug
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+// `)
+// if (category.errors) {
+//   throw category.errors
+// }
 
-const categories = category.data.allWpCategory.nodes
+// const categories = category.data.allWpCategory.nodes
 
-// Create a new page for each category
-categories.forEach((category) => {
+// // Create a new page for each category
+// categories.forEach((category) => {
 
-console.log(categories)
-  // Create pages for each grandchild category
-  if (category.wpParent && category.wpParent.node.wpParent) {
-    createPage({
-      path: `/${category.wpParent.node.wpParent.node.slug}/${category.wpParent.node.slug}/${category.slug}/`,
-      component: require.resolve("./src/templates/category.js"),
-      context: {
-        slug: category.slug,
-      },
-    })
-    createPage({
-      path: `/${category.wpParent.node.wpParent.node.slug}/${category.wpParent.node.slug}/`,
-      component: require.resolve("./src/templates/category.js"),
-      context: {
-        slug: category.wpParent.node.slug,
-      },
-    })
-    createPage({
-      path: `/${category.wpParent.node.wpParent.node.slug}/`,
-      component: require.resolve("./src/templates/category.js"),
-      context: {
-        slug: category.wpParent.node.wpParent.node.slug,
-      },
-    })
-  }  else if (category.wpParent && !category.wpParent.node.wpParent){
+// console.log(categories)
+//   // Create pages for each grandchild category
+//   if (category.wpParent && category.wpParent.node.wpParent) {
+//     createPage({
+//       path: `/${category.wpParent.node.wpParent.node.slug}/${category.wpParent.node.slug}/${category.slug}/`,
+//       component: require.resolve("./src/templates/category.js"),
+//       context: {
+//         slug: category.slug,
+//       },
+//     })
+//     createPage({
+//       path: `/${category.wpParent.node.wpParent.node.slug}/${category.wpParent.node.slug}/`,
+//       component: require.resolve("./src/templates/category.js"),
+//       context: {
+//         slug: category.wpParent.node.slug,
+//       },
+//     })
+//     createPage({
+//       path: `/${category.wpParent.node.wpParent.node.slug}/`,
+//       component: require.resolve("./src/templates/category.js"),
+//       context: {
+//         slug: category.wpParent.node.wpParent.node.slug,
+//       },
+//     })
+//   }  else if (category.wpParent && !category.wpParent.node.wpParent){
     
-      createPage({
-        path: `/${category.wpParent.node.slug}/${category.slug}`,
-        component: require.resolve("./src/templates/category.js"),
-        context: {
-          slug: category.slug,
-        },
-      })
-    }
-})
+//       createPage({
+//         path: `/${category.wpParent.node.slug}/${category.slug}`,
+//         component: require.resolve("./src/templates/category.js"),
+//         context: {
+//           slug: category.slug,
+//         },
+//       })
+//     }
+// })
 // Query all tags from WordPress
 const tags = await graphql(`
 query {
