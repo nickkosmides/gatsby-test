@@ -2,7 +2,7 @@ import React from "react";
 import { Menu } from '../Menu';
 import { Footer } from "../Footer";
 import { Link } from "gatsby";
-
+import {AdSense} from '../AdSense';
 export const Layout = ({ children }) => {
-  return <div className=""><Link to="/" className="">Home</Link>{children}<Footer/></div>;
+  return <div className=""><Menu/>{children}<AdSense /><Footer/></div>;
 }

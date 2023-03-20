@@ -1,36 +1,36 @@
-// import React from "react";
-// import { graphql,useStaticQuery } from "gatsby";
-// import { Link } from "gatsby";
+import React from "react";
+import { graphql,useStaticQuery } from "gatsby";
+import { Link } from "gatsby";
 
-// export const Menu = () => {
-//   const data = useStaticQuery(graphql`
-//   query MyQuery {
-//     wp {
-//       acfOptionsMainMenu {
-//         mainMenu {
-//           menuItems {
-//             root {
-//               destination {
-//                 url
-//               }
-//               label
-//             }
-//             subMenuItems {
-//               destination {
-//                 url
-//               }
-//               label
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-//   `);
-//   console.log("Main menu", data);
-//   const {menuItems} = data.wp.acfOptionsMainMenu.mainMenu
-//   return (
-  
+export const Menu = () => {
+  // const data = useStaticQuery(graphql`
+  // query MyQuery {
+  //   wp {
+  //     acfOptionsMainMenu {
+  //       mainMenu {
+  //         menuItems {
+  //           root {
+  //             destination {
+  //               url
+  //             }
+  //             label
+  //           }
+  //           subMenuItems {
+  //             destination {
+  //               url
+  //             }
+  //             label
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  // `);
+  // console.log("Main menu", data);
+  // const {menuItems} = data.wp.acfOptionsMainMenu.mainMenu
+  return (
+  <div>sd</div>
 //   <div className="sticky top-0 z-30">
 //   <div className="bg-white border-b-[1px] border-gray-300 flex items-center text-black px-4 font-bold   h-20 ">
 //     <div className=" container mx-auto px-4">
@@ -60,8 +60,8 @@
 //   </div>
 // </div>
 // </div>
-// )
+)
   
   
   
-// }
+}

@@ -28,7 +28,7 @@ query AllPosts($categoryName: String!) {
 `
 
 export const CategoryTabsHomepage = () => {
-  const [category, setCategory] = useState('latest-news')
+  const [category, setCategory] = useState('playstation')
   const { loading, error, data } = useQuery(ALL_POSTS_QUERY, {
     variables: { categoryName: category },
   })
@@ -39,10 +39,12 @@ console.log(loading)
   // if (error) return <p>Error: {error.message}</p>
  
   return (
-    <div>
-      <div className="bg-white mb-20">
-      <div className="container overflow-x-auto">
-        <div className="flex flex-nowrap items-center space-x-10 navbar-font-family text-lg uppercase h-20">
+    <div className="container px-4 py-20">
+      <div className="grid grid-cols-12 gap-6">
+    <div className="col-span-8">
+      <div className=" mb-20">
+      <div className=" bg-white mx-auto px-4 overflow-x-auto">
+        <div className="flex  flex-nowrap items-center space-x-10 navbar-font-family text-lg uppercase h-20">
           <div onClick={(event) => {  event.preventDefault();  event.stopPropagation(); setCategory('latest-news')}} className="h-full whitespace-nowrap bg-primary text-white flex items-center px-10">Latest news</div>
           <div onClick={(event) => {  event.preventDefault();  event.stopPropagation(); setCategory('playstation')}} className="h-full whitespace-nowrap text-black flex items-center px-10">Playstation</div>
           <div onClick={(event) => {  event.preventDefault();  event.stopPropagation(); setCategory('xbox')}} className="h-full whitespace-nowrap  text-black flex items-center px-10">Xbox</div>
@@ -54,8 +56,8 @@ console.log(loading)
       </div>
     </div>
     {loading ? (
-       <div class="bg-gray-100 pb-10  container mx-auto px-4">
-       <div className="w-8/12">
+       <div class="bg-gray-100 pb-10  ">
+       <div className="">
          <div class="w-full relative  ">
            <div className="skeleton-img-overlay animate-pulse"><img src="https://dummyimage.com/16:9x1080/"></img></div>
          </div>
@@ -71,7 +73,7 @@ console.log(loading)
            </div>
          </div>
        </div>
-       <div className="w-8/12 flex flex-col space-y-10">
+       <div className=" flex flex-col space-y-10">
          {[1,2,3,4,5].map((num) => (
            <div key={num} class="bg-gray-100 flex w-full">
              <div class="w-6/12 relative  ">
@@ -97,8 +99,8 @@ console.log(loading)
      </div>
       ) : error ? (
         <p>Error: {error.message}</p>): (
-       data && (<div class="bg-gray-100 pb-10  container mx-auto px-4">
-        <div className="w-8/12">
+       data && (<div class="bg-gray-100 pb-10  ">
+        <div className="">
   <div class="w-full relative  ">
         {/* <div class="absolute bottom-0 z-10 w-full  px-5 py-10">
           <h2 class="mt-4 text-xl font-bold text-white bg-primary p-3 max-w-80">{post.title}</h2>
@@ -115,7 +117,7 @@ console.log(loading)
       </div>
       </div>
  
-  <div className="w-8/12 flex flex-col space-y-10">
+  <div className=" flex flex-col space-y-10">
 {data.posts && data.posts.nodes.slice(1).map(post => (
   <div key={post.id} class="bg-gray-100 flex w-full">
   <div class="w-6/12 relative  ">
@@ -141,6 +143,11 @@ console.log(loading)
 ))} 
 </div>
 </div>))}
+</div>
+<div className="col-span-4 bg-red-500">
+
+</div>
+    </div>
     </div>
   )
 }

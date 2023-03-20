@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 
 import { Layout } from "../components/Layout";
 import { BlockRenderer,getStyles, getClasses } from "@webdeveducation/wp-block-tools";
-
+import { useEffect } from "react";
 import {
   FacebookShareCount,
   HatenaShareCount,
@@ -18,6 +18,12 @@ import {
 
 
 const Post = ({ data ,pageContext}) => {
+  useEffect(() => {
+    // Manually reload Instagram script on component update
+    if (window.instgrm && window.instgrm.Embeds) {
+      window.instgrm.Embeds.process()
+    }
+  }, [data])
   console.log('asd', pageContext.blocks)
   const post = data.wpPost;
   console.log('asasd',getClasses(post.blocks[0]))
