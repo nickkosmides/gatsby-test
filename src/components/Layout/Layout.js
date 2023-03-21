@@ -6,3 +6,15 @@ import { Link } from "gatsby";
 export const Layout = ({ children }) => {
   return <div className=""><Menu/><Link to="/">Home</Link>{children}<Footer/></div>;
 }
+
+
+export const Head = () =>  {return ( <><script async src="https://www.googletagmanager.com/gtag/js?id=G-NR7DHTPH59"></script>>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NR7DHTPH59');
+</script>
+</>)}
+;
