@@ -30,12 +30,12 @@ query AllPosts($categoryName: String!) {
 
 export const CategoryTabsHomepage = ({latestnews}) => {
   const [category, setCategory] = useState('playstation')
-  // const [posts, setPosts] = useState(latestnews.allWpPost.nodes)
+  const [posts, setPosts] = useState(latestnews.allWpPost.nodes)
   const [start, setStart] = useState(false);
   // const [loading, setLoading] = useState('')
   // const [error, setError] = useState('')
   // if(start) {
-    const posts = latestnews.allWpPost.nodes
+    // const posts = latestnews.allWpPost.nodes
   const { loading, error, data } = useQuery(ALL_POSTS_QUERY, {
     variables: { categoryName: category },
   })
