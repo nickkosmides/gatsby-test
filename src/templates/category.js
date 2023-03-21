@@ -40,22 +40,22 @@ export default ({ data, pageContext }) => {
     return acc
   }, {})
   console.log(categories)
-  let breadcrumbs;
-  if (typeof window !== 'undefined') {
-  const categoryPath = window.location.pathname.slice(1).replace(/\/$/, ''); 
-  const categoryParts = categoryPath.split("/");
+  // let breadcrumbs;
+  // if (typeof window !== 'undefined') {
+  // const categoryPath = window.location.pathname.slice(1).replace(/\/$/, ''); 
+  // const categoryParts = categoryPath.split("/");
   
-  breadcrumbs = categoryParts.map((part, index) => {
-    const parentCategoryPath = categoryParts.slice(0, index + 1).join("/");
+  // breadcrumbs = categoryParts.map((part, index) => {
+  //   const parentCategoryPath = categoryParts.slice(0, index + 1).join("/");
   
    
-    return (
-      <li className="flex space-x-3 items-center" key={parentCategoryPath}>
-      <FontAwesomeIcon className="text-base"  icon={faChevronRight} />   <a href={`/${parentCategoryPath}`}>{part}</a> 
-      </li>
-    );
-  });
-  }
+  //   return (
+  //     <li className="flex space-x-3 items-center" key={parentCategoryPath}>
+  //     <FontAwesomeIcon className="text-base"  icon={faChevronRight} />   <a href={`/${parentCategoryPath}`}>{part}</a> 
+  //     </li>
+  //   );
+  // });
+  // }
 
   return (
     <>
@@ -69,7 +69,7 @@ export default ({ data, pageContext }) => {
             <div className="container px-4">
             <div className="grid grid-cols-12 gap-6">
             <div className="lg:col-span-9 col-span-12">
-          <ul className="breadcrumb bg-white p-2 mb-5 flex text-base items-center space-x-3"><li className=""><a href="/">Home</a> </li>{breadcrumbs}</ul>
+          {/* <ul className="breadcrumb bg-white p-2 mb-5 flex text-base items-center space-x-3"><li className=""><a href="/">Home</a> </li>{breadcrumbs}</ul> */}
 
              
              
