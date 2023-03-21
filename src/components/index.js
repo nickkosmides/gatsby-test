@@ -7,3 +7,4 @@ export * from './CategoryTabsHomepage';
 export * from './Footer';
 // export * from './CategoryTabsSection';
 export * from './InstagramEmbed';
+export * from './GoogleAnalytics';
