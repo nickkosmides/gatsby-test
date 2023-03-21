@@ -131,7 +131,7 @@ const posts = data.allWpPost.nodes
 </div>
 <div className="bg-gray-custom">
 
-<CategoryTabsHomepage/>
+<CategoryTabsHomepage latestnews={data}/>
 </div>
 
   </Layout>
@@ -140,37 +140,70 @@ const posts = data.allWpPost.nodes
 
 export const Head = () => <title>Home Page</title>;
 export const query = graphql`
-  query AllPosts {
-    allWpPost(sort: { fields: date, order: DESC }) {
-      nodes {
-        uri
-        id
-        date
-        slug
-        categories {
-          nodes {
-            slug
-            ancestors {
-              nodes {
-                slug
-              }
+query AllPosts {
+  allWpPost(
+    filter: {categories: {nodes: {elemMatch: {slug: {eq: "playstation"}}}}}
+  ) {
+    nodes {
+      uri
+      id
+      date
+      slug
+      categories {
+        nodes {
+          slug
+          ancestors {
+            nodes {
+              slug
             }
           }
         }
-        title
-        excerpt
-        author {
-          node {
-            name
-          }
+      }
+      title
+      excerpt
+      author {
+        node {
+          name
         }
-        content
-        featuredImage {
-          node {
-            sourceUrl
-          }
+      }
+      content
+      featuredImage {
+        node {
+          sourceUrl
         }
       }
     }
   }
+  all: allWpPost(sort: {date: DESC}) {
+    nodes {
+      uri
+      id
+      date
+      slug
+      categories {
+        nodes {
+          slug
+          ancestors {
+            nodes {
+              slug
+            }
+          }
+        }
+      }
+      title
+      excerpt
+      author {
+        node {
+          name
+        }
+      }
+      content
+      featuredImage {
+        node {
+          sourceUrl
+        }
+      }
+    }
+  }
+}
 `;
