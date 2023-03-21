@@ -11,10 +11,16 @@ module.exports = {
     siteUrl: `https://moviesandtv.gr`,
   },
   plugins: [
+  
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "G-NR7DHTPH59",
+        head: true,
+        anonymize: true,
+        respectDNT: true,
+        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        pageTransitionDelay: 0,
       },
     },
     `gatsby-plugin-twitter`,
