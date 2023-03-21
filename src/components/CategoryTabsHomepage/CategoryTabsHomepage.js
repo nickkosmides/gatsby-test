@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import { useQuery, gql } from "@apollo/client"
+import { graphql } from 'gatsby';
 import { formatDistance, parseISO, format,  formatDistanceToNow  } from 'date-fns';
 const ALL_POSTS_QUERY = gql`
 query AllPosts($categoryName: String!) {
