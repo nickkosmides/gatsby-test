@@ -29,7 +29,7 @@ query AllPosts($categoryName: String!) {
 `
 
 export const CategoryTabsHomepage = ({latestnews}) => {
-  const [category, setCategory] = useState('playstation')
+  const [category, setCategory] = useState('latest-news')
   const [posts, setPosts] = useState(latestnews.allWpPost.nodes)
   const [start, setStart] = useState(false);
   // const [loading, setLoading] = useState('')
@@ -76,7 +76,7 @@ console.log(data)
       <div className=" bg-white mx-auto  overflow-x-auto">
         <div className="flex  flex-nowrap items-center  navbar-font-family text-lg uppercase h-20">
           <div onClick={() =>categoryChange('latest-news')} className={`${category === 'latest-news' ? "bg-primary text-white":"text-black bg-white"} h-full cursor-pointer whitespace-nowrap  flex items-center px-10`}>Latest news</div>
-          <div onClick={() =>categoryChange('playstation') } className={`${category === 'playstation' ? "bg-primary text-white":"text-black bg-white"} h-full cursor-pointer whitespace-nowrap  flex items-center px-10`}>Playstation</div>
+          <div onClick={() =>categoryChange('anime') } className={`${category === 'playstation' ? "bg-primary text-white":"text-black bg-white"} h-full cursor-pointer whitespace-nowrap  flex items-center px-10`}>Playstation</div>
           <div onClick={() =>categoryChange('xbox') } className="h-full whitespace-nowrap  text-black flex items-center px-10">Xbox</div>
           <div className="h-full whitespace-nowrap  text-black flex items-center px-10">Nintendo</div>
           <div className="h-full whitespace-nowrap  text-black flex items-center px-10">PC</div>

@@ -89,7 +89,7 @@ export default ({ data, pageContext }) => {
 // if (loading) return <p className="bg-black h-[1000px]">Loading...</p>
 // if (error) return <p>Error: {error.message}</p>
 console.log(data)
-const posts = data.allWpPost.nodes
+const posts = data.all.nodes
 // console.log(posts.nodes[0])
 // //  const post = data.posts.nodes[0]
 // //  console.log(post)
@@ -142,7 +142,8 @@ export const Head = () => <title>Home Page</title>;
 export const query = graphql`
 query AllPosts {
   allWpPost(
-    filter: {categories: {nodes: {elemMatch: {slug: {eq: "playstation"}}}}}
+    filter: {categories: {nodes: {elemMatch: {slug: {eq: "latest-news"}}}}}
+    sort: {date: DESC}
   ) {
     nodes {
       uri
@@ -174,7 +175,7 @@ query AllPosts {
       }
     }
   }
-  all:  allWpPost(sort: { fields: date, order: DESC }) {
+  all: allWpPost(sort: {date: DESC}) {
     nodes {
       uri
       id
