@@ -30,14 +30,17 @@ query AllPosts($categoryName: String!) {
 
 export const CategoryTabsHomepage = ({latestnews}) => {
   const [category, setCategory] = useState('playstation')
-  const [posts, setPosts] = useState(latestnews.allWpPost.nodes)
+  // const [posts, setPosts] = useState(latestnews.allWpPost.nodes)
+  const [start, setStart] = useState(false);
   // const [loading, setLoading] = useState('')
   // const [error, setError] = useState('')
-  
+  // if(start) {
+    const posts = latestnews.allWpPost.nodes
   const { loading, error, data } = useQuery(ALL_POSTS_QUERY, {
     variables: { categoryName: category },
   })
-  
+
+console.log(data)
   function categoryChange(cat) {
     setCategory(cat);
     
@@ -45,13 +48,13 @@ export const CategoryTabsHomepage = ({latestnews}) => {
   
   useEffect(() => {
     console.log(category);
-    console.log(data)
-    if(!loading && !error) {
-         setPosts(data.posts.nodes);
-    }
+   
+    // if(!loading && !error) {
+    //      setPosts(data.posts.nodes);
+    // }
  
     
-  }, [category, data]);
+  }, [category]);
   
  
   // console.log(data.posts.nodes)
@@ -81,7 +84,7 @@ export const CategoryTabsHomepage = ({latestnews}) => {
         </div>
       </div>
     </div>
-    {loading ? (
+    {false ? (
        <div class="bg-gray-100 pb-10  ">
        <div className="">
          <div class="w-full relative  ">
