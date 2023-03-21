@@ -27,6 +27,7 @@
     "data-fns": "^0.1.8",
     "gatsby": "^5.3.3",
     "gatsby-plugin-apollo": "^4.0.3",
+    "gatsby-plugin-google-analytics": "^5.8.0",
     "gatsby-plugin-image": "^3.3.2",
     "gatsby-plugin-instagram-embed": "^4.0.0",
     "gatsby-plugin-lunr": "^1.5.2",
