@@ -70,15 +70,15 @@ const IndexPage = () => {
   <div className="element">
     <div className="  container mx-auto px-4 py-20">
       <div class="first-grid grid grid-cols-2 gap-1 xl:grid-cols-4 ">
-  <div className="img-overlay col-span-2 md:col-span-2 h-[300px] xl:h-[600px]"><div className="absolute bottom-0 p-5 text-white text-xl font-bold"><a href={`/${parentCategory}/${childSlug}/${grandParentCategory}/${slug}`} className="py-2 px-2 first-grid-links bg-primary">{post[0].uri}</a></div><img className="w-full h-full   object-cover" src={post[0].featuredImage.node.sourceUrl}/></div>
-  {/* <div class="col-span-2  sm:col-span-1 gap-1 grid grid-rows-2">
-    <div className="img-overlay row-span-1"><img className=" h-full object-cover" src={post[1].featuredImage.node.sourceUrl} /></div>
-   <div className="img-overlay row-span-1"><img className=" h-full object-cover" src={post[2].featuredImage.node.sourceUrl} /></div>
+  <div className="img-overlay col-span-2 md:col-span-2 h-[250px] md:h-[500px]"><div className="absolute bottom-0 p-5 text-white text-xl font-bold"><a href={`/${parentCategory}/${childSlug}/${grandParentCategory}/${slug}`} className="py-2 px-2 first-grid-links bg-primary">{post[0].uri}</a></div><img className="w-full h-full   object-cover" src={post[0].featuredImage.node.sourceUrl}/></div>
+  <div class="col-span-2  sm:col-span-1 gap-1 grid grid-rows-2 h-[500px]">
+    <div className="img-overlay row-span-1"><div className="absolute bottom-0 p-5 text-white text-xl font-bold"><a href={`/${parentCategory}/${childSlug}/${grandParentCategory}/${slug}`} className="py-2 px-2 first-grid-links bg-primary">{post[1].uri}</a></div><img className=" h-full w-full object-cover" src={post[1].featuredImage.node.sourceUrl} /></div>
+   <div className="img-overlay row-span-1"><img className=" h-full w-full object-cover" src={post[2].featuredImage.node.sourceUrl} /></div>
   </div>
-  <div class="col-span-2 sm:col-span-1 gap-1 grid grid-rows-2">
-   <div className="img-overlay row-span-1"><img className=" h-full object-cover" src={post[3].featuredImage.node.sourceUrl} /></div>
-   <div className="img-overlay row-span-1"><img className=" h-full object-cover" src={post[4].featuredImage.node.sourceUrl} /></div>
-  </div> */}
+  <div class="col-span-2 sm:col-span-1 gap-1 grid grid-rows-2 h-[500px]">
+   <div className="img-overlay row-span-1"><img className=" h-full w-full object-cover" src={post[3].featuredImage.node.sourceUrl} /></div>
+   <div className="img-overlay row-span-1"><img className=" h-full w-full object-cover" src={post[4].featuredImage.node.sourceUrl} /></div>
+  </div>
 </div>
 </div>
 </div>
