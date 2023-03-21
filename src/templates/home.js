@@ -174,7 +174,7 @@ query AllPosts {
       }
     }
   }
-  all: allWpPost(sort: {date: DESC}) {
+  all:  allWpPost(sort: { fields: date, order: DESC }) {
     nodes {
       uri
       id
@@ -206,4 +206,6 @@ query AllPosts {
     }
   }
 }
-`;
+  `
+
+;
