@@ -42,7 +42,7 @@ const IndexPage = () => {
 `;
 
   const { loading, error, data } = useQuery(GET_ALL_POSTS);
-  
+  console.log(loading)
 //    if (loading) return <p className="h-screen fixed top-0  bg-gray-custom w-full z-50 flex items-center justify-center"><div className="pixel  text-primary pb-10">Gamebit</div></p>;
 //  if (error) return <p>Error :(</p>;
   const post = data.posts.nodes;
