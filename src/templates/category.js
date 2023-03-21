@@ -59,11 +59,7 @@ export default ({ data, pageContext }) => {
 
   return (
     <>
-      {loading ? (
-        <p className="h-screen fixed top-0 bg-gray-custom w-full z-50 flex items-center justify-center">
-          <div className="pixel text-primary pb-10">Gamebit</div>
-        </p>
-      ) : (
+     
         <Layout>
           <div className="bg-gray-custom py-20">
             <div className="container px-4">
@@ -107,7 +103,7 @@ export default ({ data, pageContext }) => {
               </div>
           
         </Layout>
-      )}
+    
     </>
   )
 }
