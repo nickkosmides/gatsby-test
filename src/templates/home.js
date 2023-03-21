@@ -141,7 +141,7 @@ const posts = data.allWpPost.nodes
 export const Head = () => <title>Home Page</title>;
 export const query = graphql`
   query AllPosts {
-    allWpPost {
+    allWpPost(sort: { fields: date, order: DESC }) {
       nodes {
         uri
         id
