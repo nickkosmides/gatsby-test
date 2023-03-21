@@ -41,7 +41,7 @@ export default ({ data, pageContext }) => {
   }, {})
   console.log(categories)
   if (typeof window !== 'undefined') {
-  const categoryPath = window.location.pathname.slice(1).replace(/\/$/, ''); }
+  const categoryPath = window.location.pathname.slice(1).replace(/\/$/, ''); 
   const categoryParts = categoryPath.split("/");
   const breadcrumbs = categoryParts.map((part, index) => {
     const parentCategoryPath = categoryParts.slice(0, index + 1).join("/");
@@ -53,6 +53,7 @@ export default ({ data, pageContext }) => {
       </li>
     );
   });
+}
 
   return (
     <>
