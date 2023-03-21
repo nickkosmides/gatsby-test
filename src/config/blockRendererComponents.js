@@ -31,9 +31,7 @@ case "core/media-text": {
 // }
 case "core/gallery": {
   return <Gallery key={block.id} 
-  verticalAlignment={block.attributes.verticalAlignment}
-  gatsbyImage={block.attributes.gatsbyImage}
-  mediaPosition={block.attributes.mediaPosition}
+  
   
   >
   <BlockRenderer blocks={block.innerBlocks}/>

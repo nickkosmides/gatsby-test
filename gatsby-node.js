@@ -28,30 +28,35 @@ exports.createPages = async ({actions, graphql}) => {
     }
   }
   `)
+  createPage({
+    path: `/`,
+    component: require.resolve("./src/templates/home.js"),
+    
+  })
 
 
-  const allPages = data.allWpPage.nodes
-  for(let i = 0; i < allPages.length; i++) {
-    const page  = allPages[i];
-    let blocks = page.blocks;
+  // const allPages = data.allWpPage.nodes
+  // for(let i = 0; i < allPages.length; i++) {
+  //   const page  = allPages[i];
+  //   let blocks = page.blocks;
 
-    blocks = assignIds(blocks);
-    blocks = await assignGatsbyImage({
-      blocks,
-      graphql,
-      coreMediaText: true,
-      coreImage: true,
-      coreCover: true,
-    });
-    createPage({
-      path: page.uri,
-      component: pageTemplate,
-      context: {
-        databaseId: page.databaseId,
-        blocks,
-      }
-    });
-  }
+  //   blocks = assignIds(blocks);
+  //   blocks = await assignGatsbyImage({
+  //     blocks,
+  //     graphql,
+  //     coreMediaText: true,
+  //     coreImage: true,
+  //     coreCover: true,
+  //   });
+  //   createPage({
+  //     path: page.uri,
+  //     component: pageTemplate,
+  //     context: {
+  //       databaseId: page.databaseId,
+  //       blocks,
+  //     }
+  //   });
+  // }
 
 //   const result = await graphql(`
 //   query {
