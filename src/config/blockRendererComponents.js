@@ -35,7 +35,7 @@ case "core/gallery": {
   gatsbyImage={block.attributes.gatsbyImage}
   mediaPosition={block.attributes.mediaPosition}
   
-  å>
+  >
   <BlockRenderer blocks={block.innerBlocks}/>
   </Gallery>
 }

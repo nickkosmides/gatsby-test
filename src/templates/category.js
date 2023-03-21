@@ -93,8 +93,7 @@ export default ({ data, pageContext }) => {
                  </div>
                 ))}
             
-           
-        
+         
           </div>
           <div className="lg:col-span-3 col-span-12 bg-red-500 h-96"></div>
           </div>

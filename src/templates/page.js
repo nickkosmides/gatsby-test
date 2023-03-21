@@ -4,10 +4,12 @@ import { BlockRendererComponents } from "../config/blockRendererComponents";
 import { Link } from "gatsby";
 import { Layout } from '../components';
 import  {graphql} from 'gatsby';
+
 const page = (props) => {
   console.log("Page Props",props);
   return (
     <Layout>
+     
     <div>
   <BlockRendererProvider allBlocks={props.pageContext.blocks} 
   renderComponent={BlockRendererComponents}
@@ -18,32 +20,33 @@ const page = (props) => {
   }}
   />
   </div>
+
    </Layout>
   )
 }
 
-export const query = graphql`
-query PageQuery($databaseId: Int!) {
-  wpPage(databaseId: {eq: $databaseId}) {
-    seo {
-      metaDesc
-      title
-    }
-  }
+// export const query = graphql`
+// query PageQuery($databaseId: Int!) {
+//   wpPage(databaseId: {eq: $databaseId}) {
+//     seo {
+//       metaDesc
+//       title
+//     }
+//   }
  
-}
-`;
+// }
+// `;
 
-export const Head = ({data}) => {
-  const page = data.wpPage || data.wpCar;
-  return (
-    <>
-    <title>
-      {page.seo?.title || ""}
-    </title>
-    <meta name="description" content={page.seo?.metaDesc || ""}></meta>
-    </>
-  )
-}
+// export const Head = ({data}) => {
+//   const page = data.wpPage
+//   return (
+//     <>
+//     <title>
+//       {page.seo?.title || ""}
+//     </title>
+//     <meta name="description" content={page.seo?.metaDesc || ""}></meta>
+//     </>
+//   )
+// }
 
 export default page;
