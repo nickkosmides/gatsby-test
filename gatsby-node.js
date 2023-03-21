@@ -84,13 +84,13 @@ console.log(categories)
         slug: category.slug,
       },
     })
-    // createPage({
-    //   path: `/${category.wpParent.node.wpParent.node.slug}/${category.wpParent.node.slug}/`,
-    //   component: require.resolve("./src/templates/category.js"),
-    //   context: {
-    //     slug: category.wpParent.node.slug,
-    //   },
-    // })
+    createPage({
+      path: `/${category.wpParent.node.wpParent.node.slug}/${category.wpParent.node.slug}/`,
+      component: require.resolve("./src/templates/category.js"),
+      context: {
+        slug: category.wpParent.node.slug,
+      },
+    })
     createPage({
       path: `/${category.wpParent.node.wpParent.node.slug}/`,
       component: require.resolve("./src/templates/category.js"),
