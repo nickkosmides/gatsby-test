@@ -43,18 +43,19 @@ export const CategoryTabsHomepage = ({latestnews}) => {
 console.log(data)
   function categoryChange(cat) {
     setCategory(cat);
+    setStart(true);
     
   }
   
   useEffect(() => {
     console.log(category);
    
-    // if(!loading && !error) {
-    //      setPosts(data.posts.nodes);
-    // }
+    if(!loading && !error && start) {
+         setPosts(data.posts.nodes);
+    }
  
     
-  }, [category]);
+  }, [category, data]);
   
  
   // console.log(data.posts.nodes)
@@ -84,7 +85,7 @@ console.log(data)
         </div>
       </div>
     </div>
-    {false ? (
+    {loading && start ? (
        <div class="bg-gray-100 pb-10  ">
        <div className="">
          <div class="w-full relative  ">
