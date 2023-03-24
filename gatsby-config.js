@@ -20,13 +20,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-twitter`,
-    {
-      resolve: `gatsby-plugin-instagram-embed`,
-      options: {
-        // ...
-        disable: process.env.NODE_ENV !== `production`, // disable during development
-      },
-    },
+  
     {
       resolve: "gatsby-plugin-apollo",
       options: {
