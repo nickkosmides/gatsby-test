@@ -4,5 +4,5 @@ import { Footer } from "../Footer";
 import { Link } from "gatsby";
 // import {AdSense} from '../AdSense';
 export const Layout = ({ children }) => {
-  return <div className=""><Menu/><Link to="/">Home</Link>{children}<Footer/></div>;
+  return <div className=""><Menu/>{children}<Footer/></div>;
 }

@@ -135,9 +135,9 @@ body {
   height: auto;
 } */
 
-/* a {
-  color: white!important;
-} */
+a:active {
+  color: #00DC64!important;
+}
 /* .has-global-padding {
   padding: 0px!important;
 }
