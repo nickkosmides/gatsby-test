@@ -20,12 +20,10 @@ jobs:
         node-version: 18
 
     - name: Install dependencies
-      run: |
-        npm ci
+      run: npm ci
 
     - name: Build Gatsby site
-      run: |
-        npm run build
+      run: npm run build
 
     - name: Install and configure SSH client
       run: |
@@ -34,4 +32,4 @@ jobs:
 
     - name: Deploy to DigitalOcean Droplet
       run: |
-        rsync -rav --delete --progress -e "sshpass -f password.txt ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" -- gatsby-test/public/ ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}:/var/www/gatsby-test/public
+        rsync -rav --delete --progress -e "sshpass -f password.txt ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" -- public/ ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}:${{ secrets.DEPLOY_PATH }}
