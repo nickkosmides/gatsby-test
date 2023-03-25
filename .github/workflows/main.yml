@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2.5.2
+      uses: actions/setup-node@v2
       with:
         node-version: 16
 
@@ -27,6 +27,6 @@ jobs:
 
     - name: Deploy Gatsby site to DigitalOcean
       run: |
-        rsync -r --delete-after --quiet ${{ github.workspace }}/public/ root@164.92.244.180:/path/to/your/gatsby-test/
+        rsync -r --delete-after --quiet ${{ github.workspace }}/public/ root@164.92.244.180:/va/www/gatsby-test/
       env:
         DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
