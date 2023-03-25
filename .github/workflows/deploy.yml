@@ -1,5 +1,5 @@
 
-name: Deploy Gatsby Site
+name: Deploy Gatsby Sites
 
 on:
   workflow_dispatch:
