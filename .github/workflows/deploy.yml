@@ -1,37 +1,34 @@
-name: Deploy Gatsby Site
+name: Deploy Gatsby to DigitalOcean Droplet
+
 on:
   push:
     branches:
       - production
 
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 18.x
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
 
-      - name: Install dependencies
-        run: npm ci
+    - name: Install dependencies
+      run: npm ci
 
-      - name: Build
-        run: gatsby build
+    - name: Build Gatsby site
+      run: npm run build
 
-      - name: Deploy to DigitalOcean
-        uses: appleboy/ssh-action@v0.2.4
-        with:
-          host: ${{ secrets.DO_HOST }}
-          username: ${{ secrets.USER }}
-          password: ${{ secrets.DO_PASSWORD }}
-          port: ${{ secrets.DO_PORT }}
-          script: |
-            cd /var/www/gatsbt-test
-            rm -rf *
-            cp -R /github/workspace/public/* .
+    - name: Install and configure SSH client
+      run: |
+        sudo apt-get install -y sshpass
+        echo "${{ secrets.DROPLET_PASSWORD }}" > password.txt
 
+    - name: Deploy to DigitalOcean Droplet
+      run: |
+        rsync -rav --delete --progress -e "sshpass -f password.txt ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" -- public/ ${‌{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}:${{ secrets.DEPLOY_PATH }}
