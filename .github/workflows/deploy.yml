@@ -21,12 +21,10 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd gatsby-test
         npm ci
 
     - name: Build Gatsby site
       run: |
-        cd gatsby-test
         npm run build
 
     - name: Install and configure SSH client
