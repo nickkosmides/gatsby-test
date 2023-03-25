@@ -27,7 +27,7 @@ jobs:
 
     - name: Deploy to DigitalOcean
       env:
-        DO_SSH_KEY: ${{ secrets.DO_SSH_KEY }}
+        DO_PASSWORD: ${{ secrets.DO_PASSWORD }}
         DO_USER: ${{ secrets.DO_USER }}
         DO_HOST: ${{ secrets.DO_HOST }}
         DO_PATH: ${{ secrets.DO_PATH }}
