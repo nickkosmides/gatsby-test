@@ -15,5 +15,5 @@ jobs:
 
     - name: Install dependencies and build
       run: |
-        npm ci
+        npm install
         gatsby build
