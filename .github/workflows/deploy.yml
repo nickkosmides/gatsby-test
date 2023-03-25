@@ -22,12 +22,5 @@ jobs:
         npm ci
         gatsby build
 
-    - name: Deploy to DigitalOcean
-      env:
-        DO_PASSWORD: ${{ secrets.DO_PASSWORD }}
-        DO_USER: ${{ secrets.DO_USER }}
-        DO_HOST: ${{ secrets.DO_HOST }}
-        DO_PATH: ${{ secrets.DO_PATH }}
-      run: |
-         sudo apt-get install -y sshpass
-         sshpass -p "$DO_PASSWORD" rsync -avP --delete -e "ssh" ./public/ $DO_USER@$DO_HOST:$DO_PATH
+    - name: Print a message
+      run: echo "Hello, world!"
