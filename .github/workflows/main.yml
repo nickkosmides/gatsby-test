@@ -27,6 +27,6 @@ jobs:
 
     - name: Deploy Gatsby site to DigitalOcean
       run: |
-        rsync -r --delete-after --quiet ${{ github.workspace }}/public/ your-droplet-username@your-droplet-ip:/path/to/your/gatsby-site/
+        rsync -r --delete-after --quiet ${{ github.workspace }}/public/ root@164.92.244.180:/path/to/your/gatsby-test/
       env:
         DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
