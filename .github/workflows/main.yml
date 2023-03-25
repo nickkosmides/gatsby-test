@@ -1,0 +1,32 @@
+name: Deploy Gatsby Site
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build Gatsby site
+      run: npm run build
+
+    - name: Deploy Gatsby site to DigitalOcean
+      run: |
+        rsync -r --delete-after --quiet ${{ github.workspace }}/public/ your-droplet-username@your-droplet-ip:/path/to/your/gatsby-site/
+      env:
+        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
