@@ -3,9 +3,7 @@ name: Deploy Gatsby Sites
 
 
 on:
-  push:
-    branches:
-      - prodcuton
+  workflow_dispatch:
 
 jobs:
   deploy:
