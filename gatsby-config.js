@@ -26,7 +26,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-apollo",
       options: {
-        uri: 'https://base.moviesandtv.gr',
+        uri: process.env.WPGRAPHQL_URL,
       },
     },
     "gatsby-plugin-react-helmet",
@@ -40,7 +40,7 @@ module.exports = {
         includedRoutes: [
           "**/article/",
         ],
-        url: 'https://base.moviesandtv.gr',
+        url: process.env.WPGRAPHQL_URL,
         permalinks: {
           // Use the post slug as is (i.e. in Greek characters)
           // and ensure that non-latin characters are properly encoded
