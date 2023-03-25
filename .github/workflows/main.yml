@@ -5,10 +5,10 @@ on:
     branches:
       - main
   workflow_dispatch:
-  
+
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Checkout repository
@@ -23,7 +23,7 @@ jobs:
       run: npm ci
 
     - name: Build Gatsby site
-      run: npm run build
+      run: gatsby build
 
     - name: Deploy Gatsby site to DigitalOcean
       run: |
