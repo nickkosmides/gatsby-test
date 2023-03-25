@@ -31,4 +31,4 @@ jobs:
 
     - name: Deploy to DigitalOcean Droplet
       run: |
-        rsync -rav --delete --progress -e "sshpass -f password.txt ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" -- public/ ${‌{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}:${{ secrets.DEPLOY_PATH }}
+        rsync -rav --delete --progress -e "sshpass -f password.txt ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" -- public/ ${{ secrets.DROPLET_USER }}@${{ secrets.DROPLET_IP }}:${{ secrets.DEPLOY_PATH }}
